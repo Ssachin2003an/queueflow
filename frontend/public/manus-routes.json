@@ -1,0 +1,14 @@
+{
+  "routes": [
+    { "path": "/", "title": "QueueFlow" },
+    { "path": "/login", "title": "Sign in" },
+    { "path": "/register", "title": "Create account" },
+    { "path": "/dashboard", "title": "Overview" },
+    { "path": "/dashboard/queues", "title": "Queues" },
+    { "path": "/dashboard/queues/create", "title": "Create queue" },
+    { "path": "/dashboard/queues/:id", "title": "Queue details" },
+    { "path": "/dashboard/analytics", "title": "Analytics" },
+    { "path": "/dashboard/settings", "title": "Settings" },
+    { "path": "/display/:queueId", "title": "Public queue display" }
+  ]
+}

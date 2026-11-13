@@ -1,0 +1,40 @@
+{
+  "name": "queueflow",
+  "version": "1.0.0",
+  "private": true,
+  "packageManager": "npm@10.9.9",
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "workspaces": [
+    "frontend",
+    "backend",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run build --workspace @queueflow/shared && tsx watch backend/src/server.ts",
+    "dev:server": "npm run build --workspace @queueflow/shared && tsx watch backend/src/server.ts",
+    "build": "npm run build --workspace @queueflow/shared && npm run build --workspace @queueflow/backend && npm run build --workspace @queueflow/frontend",
+    "start": "node backend/dist/server.js",
+    "lint": "npm run lint --workspaces --if-present",
+    "typecheck": "npm run build --workspace @queueflow/shared && npm run typecheck --workspace @queueflow/backend && npm run typecheck --workspace @queueflow/frontend",
+    "test": "npm run build --workspace @queueflow/shared && npm run test --workspace @queueflow/backend && npm run test --workspace @queueflow/frontend",
+    "seed": "npm run seed --workspace @queueflow/backend",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "overrides": {
+    "@typescript-eslint/typescript-estree": {
+      "minimatch": "11.0.8"
+    }
+  },
+  "devDependencies": {
+    "@types/node": "22.15.0",
+    "eslint": "9.39.5",
+    "eslint-config-next": "16.4.6",
+    "prettier": "3.10.1",
+    "prettier-plugin-tailwindcss": "0.6.14",
+    "tsx": "4.19.4",
+    "typescript": "5.9.3"
+  }
+}
